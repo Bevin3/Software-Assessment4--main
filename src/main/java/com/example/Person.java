@@ -173,3 +173,12 @@ public class Person {
         }
     }
 }
+
+try (BufferedWriter writer = new BufferedWriter(new FileWriter("persons.txt", true))) {
+    writer.write(personID + "," + firstName + "," + lastName + "," + address + "," + birthdate);
+    writer.newLine();  // move to next line
+    return true;
+} catch (IOException e) {
+    e.printStackTrace();
+    return false;
+}
